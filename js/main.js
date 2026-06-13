@@ -173,7 +173,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
       '+_Site DFAD Mécatronique_+';
 
-    const waURL = 'https://wa.me/237690304985?text=' + encodeURIComponent(waMsg);
+    const waURL = 'https://wa.me/237656876238?text=' + encodeURIComponent(waMsg);
 
     // ── Afficher la modale ──
     afficherModale(waURL, prenom);
