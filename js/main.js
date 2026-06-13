@@ -171,7 +171,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       '⚙️ Service : ' + service + '\n' +
       '💬 Message : ' + message;
 
-    const waURL = 'https://wa.me/237656876238?text=' + encodeURIComponent(waMsg);
+    const waURL = 'https://wa.me/237690304985?text=' + encodeURIComponent(waMsg);
 
     afficherModale(waURL, prenom);
     form.reset();
@@ -229,7 +229,7 @@ function afficherModale(waURL, prenom) {
 
         <a href="${waURL}" target="_blank" rel="noopener noreferrer" class="mwa-wa-btn" id="btn-wa-link">
           <i class="ti ti-brand-whatsapp"></i>
-          <span>Envoyer sur WhatsApp · +237 656 876 238</span>
+          <span>Envoyer sur WhatsApp · +237 690 304 985</span>
         </a>
 
         <div class="mwa-meta">
