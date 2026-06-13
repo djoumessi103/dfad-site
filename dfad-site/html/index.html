@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DFAD Mécatronique — L'expertise au service de votre mobilité · Yaoundé</title>
+  <meta name="description" content="DFAD Mécatronique à Yaoundé : diagnostic auto, électronique, programmation clés, électricité automobile, GPS, alarme, dépannage informatique. Disponible 7j/7.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ── SURCHARGES DFAD ── */
+    :root {
+      --orange:  #f5a623;
+      --orange2: #e8951a;
+      --orange-l:#fff8e7;
+      --navy:    #0a0f1e;
+      --navy2:   #111827;
+    }
+
+    /* HERO plein écran style affiche */
+    #hero {
+      background: linear-gradient(135deg, #0a0f1e 0%, #0d1b2a 40%, #1a0a00 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-car-glow {
+      position: absolute; top: -60px; right: -80px;
+      width: 680px; height: 680px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-gear {
+      position: absolute; font-size: 280px; color: rgba(245,166,35,.04);
+      right: -40px; bottom: -40px; pointer-events: none;
+      animation: rotateSlow 30s linear infinite;
+    }
+    @keyframes rotateSlow { to { transform: rotate(360deg); } }
+
+    .hero-title { font-size: clamp(2.6rem,5vw,4rem); }
+    .hero-title .dfad { color: var(--orange); font-size: clamp(3rem,6vw,5rem); letter-spacing: -.03em; }
+    .hero-badge-founded {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.3);
+      color: var(--orange); font-size: .72rem; font-weight: 600;
+      padding: 4px 14px; border-radius: 99px; letter-spacing: .1em;
+      text-transform: uppercase; margin-bottom: 18px;
+    }
+
+    /* MARQUES logos */
+    .brands-strip {
+      background: #111827; border-top: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 22px 0; overflow: hidden;
+    }
+    .brands-inner {
+      display: flex; align-items: center; gap: 48px;
+      animation: scrollBrands 20s linear infinite;
+      width: max-content;
+    }
+    @keyframes scrollBrands { to { transform: translateX(-50%); } }
+    .brand-item {
+      font-size: .85rem; font-weight: 700; color: rgba(255,255,255,.35);
+      letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
+      transition: color .3s;
+    }
+    .brand-item:hover { color: var(--orange); }
+
+    /* SERVICE CARDS style sombre */
+    .services-dark { background: #0d1117; padding: 96px 0; }
+    .services-dark .section-title { color: #fff; }
+    .services-dark .section-sub   { color: rgba(255,255,255,.55); }
+    .svc-card-dark {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 28px;
+      transition: all .3s ease;
+      position: relative; overflow: hidden;
+    }
+    .svc-card-dark::before {
+      content:''; position:absolute; top:0; left:0; right:0;
+      height:3px; background:var(--orange);
+      transform:scaleX(0); transform-origin:left;
+      transition:transform .3s;
+    }
+    .svc-card-dark:hover { background: rgba(245,166,35,.06); border-color: rgba(245,166,35,.25); transform: translateY(-4px); }
+    .svc-card-dark:hover::before { transform: scaleX(1); }
+    .svc-card-dark .sc-icon { background: rgba(245,166,35,.12); border-color: rgba(245,166,35,.25); }
+    .svc-card-dark .sc-title { color: #f1f5f9; }
+    .svc-card-dark .sc-desc  { color: rgba(255,255,255,.5); }
+    .svc-card-dark .sc-list li { color: rgba(255,255,255,.65); }
+
+    /* CHECKLIST style */
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .92rem; color: #1e293b;
+    }
+    .check-icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: #dcfce7; border: 1.5px solid #86efac;
+      display: flex; align-items: center; justify-content: center;
+      color: #166534; font-size: .75rem; flex-shrink: 0;
+    }
+
+    /* SECTION ORDINATEURS */
+    .it-section { background: #0f172a; padding: 96px 0; }
+    .it-section .section-title { color: #fff; }
+    .it-section .section-sub   { color: rgba(255,255,255,.55); }
+    .it-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    .it-img {
+      border-radius: 16px; overflow: hidden; position: relative;
+    }
+    .it-img img {
+      width: 100%; height: 360px; object-fit: cover; border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .it-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .it-feat {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: 18px;
+      transition: all .3s;
+    }
+    .it-feat:hover { border-color: rgba(245,166,35,.3); background: rgba(245,166,35,.06); }
+    .it-feat i { font-size: 1.5rem; color: var(--orange); margin-bottom: 10px; display: block; }
+    .it-feat h4 { font-size: .9rem; font-weight: 600; color: #f1f5f9; margin-bottom: 4px; }
+    .it-feat p  { font-size: .78rem; color: rgba(255,255,255,.45); }
+
+    /* POURQUOI NOUS */
+    .why-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .why-card {
+      text-align: center; padding: 32px 20px;
+      border: 1px solid var(--bdr); border-radius: 14px;
+      transition: all .3s;
+    }
+    .why-card:hover { border-color: #fcd34d; box-shadow: 0 8px 28px rgba(245,166,35,.12); transform: translateY(-4px); }
+    .why-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--orange-l); border: 2px solid #fcd34d;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--orange);
+      margin: 0 auto 16px;
+    }
+    .why-title { font-size: 1rem; font-weight: 700; color: var(--navy2); margin-bottom: 8px; }
+    .why-desc  { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+    /* CONTACT spécial */
+    .contact-cta {
+      background: linear-gradient(135deg, #0a0f1e, #1a0a00);
+      padding: 80px 0; text-align: center; position: relative; overflow: hidden;
+    }
+    .contact-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(245,166,35,.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(245,166,35,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta-title { font-size: clamp(1.8rem,4vw,3rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .cta-title span { color: var(--orange); }
+    .cta-sub { font-size: 1.05rem; color: rgba(255,255,255,.6); margin-bottom: 36px; }
+    .cta-phones {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .cta-phone {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(245,166,35,.12); border: 1.5px solid rgba(245,166,35,.3);
+      color: #fff; padding: 14px 28px; border-radius: 10px;
+      font-size: 1.3rem; font-weight: 800; letter-spacing: .02em;
+      text-decoration: none; transition: all .3s;
+    }
+    .cta-phone:hover { background: var(--orange); border-color: var(--orange); transform: translateY(-2px); }
+    .cta-phone i { color: var(--orange); font-size: 1.4rem; }
+    .cta-phone:hover i { color: #fff; }
+    .cta-badges {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .cta-badge {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.75); padding: 8px 18px; border-radius: 99px;
+      font-size: .82rem; font-weight: 500;
+    }
+    .cta-badge i { color: var(--orange); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo">⚙</div>
+        <span class="nav-name"><span>DFAD</span> Mécatronique</span>
+      </div>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#hero">Accueil</a></li>
+        <li><a class="nav-link" href="#services">Services Auto</a></li>
+        <li><a class="nav-link" href="#informatique">Informatique</a></li>
+        <li><a class="nav-link" href="#pourquoi">Pourquoi nous</a></li>
+        <li><a class="nav-link" href="#galerie">Galerie</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="tel:+237690304985"><i class="ti ti-phone"></i> 690 304 985</a>
+      <button id="burger" aria-label="Menu" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+    </div>
+    <nav id="mobile-menu">
+      <a href="#hero">Accueil</a>
+      <a href="#services">Services Auto</a>
+      <a href="#informatique">Informatique</a>
+      <a href="#pourquoi">Pourquoi nous</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+  <div class="hero-gear"><i class="ti ti-settings"></i></div>
+  <div class="hero-car-glow"></div>
+  <div class="container">
+    <div style="padding: 100px 0 80px; max-width: 700px;">
+      <div class="hero-badge-founded anim">
+        <i class="ti ti-calendar"></i> Fondée en 2023 · Yaoundé, Cameroun
+      </div>
+      <h1 class="hero-title anim anim-delay-1">
+        <span class="dfad">DFAD</span><br>
+        <span style="color:#fff;">Mécatronique</span>
+      </h1>
+      <p style="font-size:1.1rem; color:rgba(255,255,255,.55); letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px;" class="anim anim-delay-1">
+        L'expertise au service de votre mobilité
+      </p>
+      <p class="hero-desc anim anim-delay-2">
+        Spécialiste en mécatronique automobile à Yaoundé. Diagnostic électronique, programmation de clés, électricité auto, installation GPS & alarme, dépannage informatique. Toutes marques. Disponible <strong style="color:var(--orange);">7 jours sur 7</strong>.
+      </p>
+      <div class="hero-actions anim anim-delay-3">
+        <a href="tel:+237690304985" class="btn btn-primary"><i class="ti ti-phone"></i> Appeler maintenant</a>
+        <a href="#services" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,.3);">Nos services</a>
+      </div>
+      <div class="hero-stats anim anim-delay-4">
+        <div>
+          <div class="hero-stat-n" data-count="3" data-suffix=" ans">0</div>
+          <div class="hero-stat-l">D'expérience</div>
+        </div>
+        <div>
+          <div class="hero-stat-n" data-count="500" data-suffix="+">0</div>
+          <div class="hero-stat-l">Véhicules traités</div>
+        </div>
+        <div>
+          <div class="hero-stat-n" data-count="12" data-suffix="">0</div>
+          <div class="hero-stat-l">Marques diagnostiquées</div>
+        </div>
+        <div>
+          <div class="hero-stat-n" data-count="7" data-suffix="j/7">0</div>
+          <div class="hero-stat-l">Disponibilité</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BANDEAU MARQUES ══════════════ -->
+<div class="brands-strip">
+  <div class="brands-inner">
+    <span class="brand-item">Toyota</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Hyundai</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Kia</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Nissan</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Honda</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Chevrolet</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Renault</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Peugeot</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Mercedes-Benz</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">BMW</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Audi</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Volkswagen</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Ford</span>
+    <span class="brand-item">•</span>
+    <!-- doublon pour effet infini -->
+    <span class="brand-item">Toyota</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Hyundai</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Kia</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Nissan</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Honda</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Chevrolet</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Renault</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Peugeot</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Mercedes-Benz</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">BMW</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Audi</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Volkswagen</span>
+    <span class="brand-item">•</span>
+    <span class="brand-item">Ford</span>
+    <span class="brand-item">•</span>
+  </div>
+</div>
+
+<!-- ══════════════ SERVICES AUTO ══════════════ -->
+<section id="services" class="services-dark">
+  <div class="container">
+    <div style="margin-bottom:56px;">
+      <span class="tag anim">Services Automobile</span>
+      <h2 class="section-title anim anim-delay-1">Mécatronique <span>Automobile</span></h2>
+      <p class="section-sub anim anim-delay-2" style="color:rgba(255,255,255,.5);">
+        Nous diagnostiquons et réparons toutes les marques avec un équipement de pointe et des techniciens qualifiés.
+      </p>
+    </div>
+    <div class="services-grid" style="grid-template-columns: repeat(3,1fr); gap:24px;">
+
+      <div class="svc-card-dark anim">
+        <div class="sc-icon"><i class="ti ti-cpu"></i></div>
+        <h3 class="sc-title">Électronique Automobile</h3>
+        <p class="sc-desc">Expertise complète en électronique embarquée pour tous types de véhicules modernes.</p>
+        <ul class="sc-list">
+          <li>Diagnostic des calculateurs</li>
+          <li>Réparation cartes électroniques</li>
+          <li>Reprogrammation ECU</li>
+          <li>Détection de pannes complexes</li>
+        </ul>
+      </div>
+
+      <div class="svc-card-dark anim anim-delay-1">
+        <div class="sc-icon"><i class="ti ti-key"></i></div>
+        <h3 class="sc-title">Clés de Voiture</h3>
+        <p class="sc-desc">Double, réparation et programmation de toutes clés et télécommandes de véhicules.</p>
+        <ul class="sc-list">
+          <li>Duplication de clés</li>
+          <li>Programmation télécommandes</li>
+          <li>Réparation boîtiers clés</li>
+          <li>Clés à transpondeur</li>
+        </ul>
+      </div>
+
+      <div class="svc-card-dark anim anim-delay-2">
+        <div class="sc-icon"><i class="ti ti-device-laptop"></i></div>
+        <h3 class="sc-title">Diagnostic par Ordinateur</h3>
+        <p class="sc-desc">Diagnostic assisté par ordinateur avec les derniers outils professionnels du marché.</p>
+        <ul class="sc-list">
+          <li>Lecture et effacement codes défauts</li>
+          <li>Diagnostic multi-systèmes</li>
+          <li>Rapport détaillé de diagnostic</li>
+          <li>Toutes marques supportées</li>
+        </ul>
+      </div>
+
+      <div class="svc-card-dark anim">
+        <div class="sc-icon"><i class="ti ti-bolt"></i></div>
+        <h3 class="sc-title">Électricité Automobile</h3>
+        <p class="sc-desc">Réparation et installation de tous systèmes électriques sur votre véhicule.</p>
+        <ul class="sc-list">
+          <li>Câblage et faisceau électrique</li>
+          <li>Batterie et alternateur</li>
+          <li>Démarreur et tableau de bord</li>
+          <li>Éclairage et feux</li>
+        </ul>
+      </div>
+
+      <div class="svc-card-dark anim anim-delay-1">
+        <div class="sc-icon"><i class="ti ti-map-pin"></i></div>
+        <h3 class="sc-title">GPS, Alarme & Sécurité</h3>
+        <p class="sc-desc">Installation professionnelle de systèmes de sécurité et de géolocalisation.</p>
+        <ul class="sc-list">
+          <li>Installation GPS traceur</li>
+          <li>Systèmes d'alarme</li>
+          <li>Anti-braquage</li>
+          <li>Lecteur Android & caméra de recul</li>
+        </ul>
+      </div>
+
+      <div class="svc-card-dark anim anim-delay-2">
+        <div class="sc-icon"><i class="ti ti-settings"></i></div>
+        <h3 class="sc-title">Programmation Véhicule</h3>
+        <p class="sc-desc">Reprogrammation et paramétrage de tous les modules électroniques du véhicule.</p>
+        <ul class="sc-list">
+          <li>Codage des boîtes de vitesses</li>
+          <li>Programmation injecteurs</li>
+          <li>Calibration capteurs</li>
+          <li>Mise à jour logiciels embarqués</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Encadré "Nous diagnostiquons toutes les marques" -->
+    <div style="margin-top:48px; background:rgba(245,166,35,.06); border:1px solid rgba(245,166,35,.2); border-radius:16px; padding:36px 40px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;" class="anim">
+      <div>
+        <h3 style="font-size:1.4rem; font-weight:700; color:#fff; margin-bottom:8px;">
+          Nous diagnostiquons <span style="color:var(--orange);">toutes les marques</span>
+        </h3>
+        <p style="color:rgba(255,255,255,.5); font-size:.9rem; margin-bottom:20px;">Toyota · Hyundai · Kia · Nissan · Honda · Chevrolet · Renault · Peugeot · Mercedes-Benz · BMW · Audi · Volkswagen · Ford · et plus…</p>
+        <a href="tel:+237690304985" class="btn btn-primary"><i class="ti ti-phone"></i> Prendre rendez-vous</a>
+      </div>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="check-icon"><i class="ti ti-check"></i></div>
+          <span style="color:rgba(255,255,255,.8);">Équipement de pointe</span>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><i class="ti ti-check"></i></div>
+          <span style="color:rgba(255,255,255,.8);">Techniciens qualifiés</span>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><i class="ti ti-check"></i></div>
+          <span style="color:rgba(255,255,255,.8);">Travail rapide et garanti</span>
+        </div>
+        <div class="check-item">
+          <div class="check-icon"><i class="ti ti-check"></i></div>
+          <span style="color:rgba(255,255,255,.8);">Pièces de qualité</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ INFORMATIQUE ══════════════ -->
+<section id="informatique" class="it-section">
+  <div class="container">
+    <div style="margin-bottom:56px; text-align:center;">
+      <span class="tag anim">Informatique</span>
+      <h2 class="section-title anim anim-delay-1" style="color:#fff;">Dépannage <span>Informatique</span></h2>
+      <p class="section-sub anim anim-delay-2" style="color:rgba(255,255,255,.5); margin:0 auto 0;">
+        Réparation et entretien de vos ordinateurs et téléphones de toute marque.
+      </p>
+    </div>
+    <div class="it-grid anim">
+      <div class="it-img">
+        <img src="../assets/images/dfad-affiche.jpg" alt="DFAD Mécatronique - Services informatique et automobile" style="height:420px;">
+      </div>
+      <div>
+        <h3 style="font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:20px;">
+          Dépannage des <span style="color:var(--orange);">ordinateurs</span> et de vos <span style="color:var(--orange);">téléphones</span> de toute marque
+        </h3>
+        <div class="it-features">
+          <div class="it-feat">
+            <i class="ti ti-device-mobile-screen"></i>
+            <h4>Changement d'afficheurs</h4>
+            <p>Écrans cassés ou défectueux pour toutes marques de téléphones</p>
+          </div>
+          <div class="it-feat">
+            <i class="ti ti-battery-charging"></i>
+            <h4>Circuit de charge</h4>
+            <p>Réparation des circuits de charge téléphones et PC</p>
+          </div>
+          <div class="it-feat">
+            <i class="ti ti-refresh"></i>
+            <h4>Mise à jour logicielle</h4>
+            <p>Flashage, mise à jour système et récupération de données</p>
+          </div>
+          <div class="it-feat">
+            <i class="ti ti-tool"></i>
+            <h4>Réparation & Entretien</h4>
+            <p>Nettoyage, remplacement composants, optimisation performances</p>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="tel:+237690304985" class="btn btn-primary"><i class="ti ti-phone"></i> Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ STATS ══════════════ -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="anim">
+        <div class="stat-n" data-count="3" data-suffix=" ans">0</div>
+        <div class="stat-l">D'expertise</div>
+      </div>
+      <div class="anim anim-delay-1">
+        <div class="stat-n" data-count="500" data-suffix="+">0</div>
+        <div class="stat-l">Clients satisfaits</div>
+      </div>
+      <div class="anim anim-delay-2">
+        <div class="stat-n" data-count="12" data-suffix="">0</div>
+        <div class="stat-l">Marques auto</div>
+      </div>
+      <div class="anim anim-delay-3">
+        <div class="stat-n" data-count="7" data-suffix="j/7">0</div>
+        <div class="stat-l">Disponibilité</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ POURQUOI NOUS ══════════════ -->
+<section id="pourquoi" class="section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:56px;">
+      <span class="tag anim">Nos atouts</span>
+      <h2 class="section-title anim anim-delay-1">Pourquoi choisir <span>DFAD ?</span></h2>
+      <p class="section-sub anim anim-delay-2" style="margin:0 auto;">
+        La performance est notre passion, votre satisfaction notre priorité.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card anim">
+        <div class="why-icon"><i class="ti ti-tools"></i></div>
+        <h4 class="why-title">Équipement de pointe</h4>
+        <p class="why-desc">Nous utilisons les derniers outils professionnels de diagnostic et de réparation du marché.</p>
+      </div>
+      <div class="why-card anim anim-delay-1">
+        <div class="why-icon"><i class="ti ti-user-check"></i></div>
+        <h4 class="why-title">Techniciens qualifiés</h4>
+        <p class="why-desc">Notre équipe est formée et certifiée pour intervenir sur tous types de véhicules et appareils.</p>
+      </div>
+      <div class="why-card anim anim-delay-2">
+        <div class="why-icon"><i class="ti ti-clock"></i></div>
+        <h4 class="why-title">Travail rapide et garanti</h4>
+        <p class="why-desc">Interventions rapides avec garantie sur toutes nos prestations. Votre temps est précieux.</p>
+      </div>
+      <div class="why-card anim anim-delay-3">
+        <div class="why-icon"><i class="ti ti-star"></i></div>
+        <h4 class="why-title">Pièces de qualité</h4>
+        <p class="why-desc">Nous utilisons uniquement des pièces de qualité certifiées pour assurer la durabilité des réparations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GALERIE ══════════════ -->
+<section id="galerie" class="section section-alt">
+  <div class="container">
+    <div style="margin-bottom:40px;">
+      <span class="tag anim">Galerie</span>
+      <h2 class="section-title anim anim-delay-1">Nos <span>Réalisations</span></h2>
+    </div>
+    <div class="filter-bar anim">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="auto">Automobile</button>
+      <button class="filter-btn" data-filter="it">Informatique</button>
+      <button class="filter-btn" data-filter="secu">Sécurité</button>
+    </div>
+    <div class="gallery-grid">
+      <div class="portfolio-item anim" data-category="auto">
+        <div class="img-placeholder gallery-img" data-src="../assets/images/dfad-affiche.jpg">
+          <i class="ti ti-car"></i><span>Diagnostic auto</span>
+        </div>
+        <div class="pi-overlay"><div><div class="pi-title">Diagnostic électronique</div><div class="pi-cat">Automobile</div></div></div>
+      </div>
+      <div class="portfolio-item anim anim-delay-1" data-category="auto">
+        <div class="img-placeholder gallery-img">
+          <i class="ti ti-key"></i><span>Programmation clés</span>
+        </div>
+        <div class="pi-overlay"><div><div class="pi-title">Programmation clé BMW</div><div class="pi-cat">Automobile</div></div></div>
+      </div>
+      <div class="portfolio-item anim anim-delay-2" data-category="secu">
+        <div class="img-placeholder gallery-img">
+          <i class="ti ti-map-pin"></i><span>GPS & Alarme</span>
+        </div>
+        <div class="pi-overlay"><div><div class="pi-title">Installation GPS Toyota</div><div class="pi-cat">Sécurité</div></div></div>
+      </div>
+      <div class="portfolio-item anim" data-category="it">
+        <div class="img-placeholder gallery-img">
+          <i class="ti ti-device-laptop"></i><span>Réparation PC</span>
+        </div>
+        <div class="pi-overlay"><div><div class="pi-title">Réparation ordinateur</div><div class="pi-cat">Informatique</div></div></div>
+      </div>
+      <div class="portfolio-item anim anim-delay-1" data-category="it">
+        <div class="img-placeholder gallery-img">
+          <i class="ti ti-device-mobile"></i><span>Réparation téléphone</span>
+        </div>
+        <div class="pi-overlay"><div><div class="pi-title">Écran iPhone remplacé</div><div class="pi-cat">Informatique</div></div></div>
+      </div>
+      <div class="portfolio-item anim anim-delay-2" data-category="auto">
+        <div class="img-placeholder gallery-img">
+          <i class="ti ti-bolt"></i><span>Électricité auto</span>
+        </div>
+        <div class="pi-overlay"><div><div class="pi-title">Câblage électrique Hyundai</div><div class="pi-cat">Automobile</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT CTA ══════════════ -->
+<section id="contact" class="contact-cta">
+  <div class="container">
+    <div class="cta-content">
+      <p style="font-size:.8rem; letter-spacing:.15em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;" class="anim">Contactez-nous</p>
+      <h2 class="cta-title anim anim-delay-1">Besoin d'un <span>diagnostic</span> ou<br>d'une réparation ?</h2>
+      <p class="cta-sub anim anim-delay-2">Appelez-nous maintenant — Déplacement possible sur Yaoundé et environs</p>
+      <div class="cta-phones anim anim-delay-2">
+        <a href="tel:+237690304985" class="cta-phone">
+          <i class="ti ti-phone"></i> 690 304 985
+        </a>
+        <a href="tel:+237681826152" class="cta-phone">
+          <i class="ti ti-phone"></i> 681 826 152
+        </a>
+      </div>
+      <div class="cta-badges anim anim-delay-3">
+        <span class="cta-badge"><i class="ti ti-map-pin"></i> Yaoundé, Cameroun</span>
+        <span class="cta-badge"><i class="ti ti-clock"></i> Disponible 7j/7</span>
+        <span class="cta-badge"><i class="ti ti-car"></i> Déplacement possible</span>
+        <span class="cta-badge"><i class="ti ti-shield-check"></i> Travail garanti</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FORMULAIRE CONTACT ══════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="tag anim">Nous écrire</span>
+        <h2 class="section-title anim anim-delay-1">Envoyez-nous<br>un <span>message</span></h2>
+        <p class="section-sub anim anim-delay-2" style="margin-bottom:32px;">Décrivez votre problème, nous vous répondons rapidement.</p>
+        <div class="contact-info">
+          <div class="ci-card anim anim-delay-1">
+            <div class="ci-icon"><i class="ti ti-phone"></i></div>
+            <div>
+              <div class="ci-label">Téléphones</div>
+              <div class="ci-val">690 304 985 / 681 826 152</div>
+            </div>
+          </div>
+          <div class="ci-card anim anim-delay-2">
+            <div class="ci-icon"><i class="ti ti-map-pin"></i></div>
+            <div>
+              <div class="ci-label">Adresse</div>
+              <div class="ci-val">Yaoundé, Cameroun</div>
+            </div>
+          </div>
+          <div class="ci-card anim anim-delay-3">
+            <div class="ci-icon"><i class="ti ti-clock"></i></div>
+            <div>
+              <div class="ci-label">Disponibilité</div>
+              <div class="ci-val">7 jours sur 7 · Déplacement possible</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="anim anim-delay-2">
+        <div class="contact-form-wrap">
+          <h3 class="form-title">Demande d'intervention</h3>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone *</label>
+              <input type="tel" id="telephone" name="telephone" placeholder="6XX XXX XXX" required>
+            </div>
+            <div class="form-group">
+              <label for="service">Type de service</label>
+              <select id="service" name="service">
+                <option value="">— Sélectionnez un service —</option>
+                <option>Diagnostic électronique</option>
+                <option>Programmation / double de clé</option>
+                <option>Électricité automobile</option>
+                <option>Installation GPS / Alarme</option>
+                <option>Programmation véhicule</option>
+                <option>Dépannage ordinateur</option>
+                <option>Réparation téléphone</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Description du problème *</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre problème ou votre besoin..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="ti ti-send"></i> Envoyer par WhatsApp &amp; Email
+            </button>
+            <p style="font-size:.78rem; color:#94a3b8; text-align:center; margin-top:10px;">
+              <i class="ti ti-brand-whatsapp" style="color:#25d366;"></i> WhatsApp 690 304 985 &nbsp;·&nbsp;
+              <i class="ti ti-mail" style="color:#ea4335;"></i> djoujesica86@gmail.com
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">⚙</div>
+        <h3 style="font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:10px;">DFAD Mécatronique</h3>
+        <p>L'expertise au service de votre mobilité. Spécialiste mécatronique à Yaoundé depuis 2023. Service de qualité pour votre sécurité.</p>
+        <div class="footer-social" style="margin-top:16px;">
+          <a href="#" class="f-social" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+          <a href="tel:+237690304985" class="f-social" aria-label="Téléphone"><i class="ti ti-phone"></i></a>
+          <a href="https://wa.me/237690304985" class="f-social" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services Auto</h4>
+        <ul>
+          <li><a href="#services">Électronique automobile</a></li>
+          <li><a href="#services">Programmation clés</a></li>
+          <li><a href="#services">Diagnostic ordinateur</a></li>
+          <li><a href="#services">Électricité auto</a></li>
+          <li><a href="#services">GPS & Alarme</a></li>
+          <li><a href="#services">Programmation véhicule</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informatique</h4>
+        <ul>
+          <li><a href="#informatique">Dépannage PC</a></li>
+          <li><a href="#informatique">Réparation téléphone</a></li>
+          <li><a href="#informatique">Changement écran</a></li>
+          <li><a href="#informatique">Circuit de charge</a></li>
+          <li><a href="#informatique">Mise à jour logicielle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+237690304985"><i class="ti ti-phone" style="margin-right:5px;color:var(--orange);"></i>690 304 985</a></li>
+          <li><a href="tel:+237681826152"><i class="ti ti-phone" style="margin-right:5px;color:var(--orange);"></i>681 826 152</a></li>
+          <li><a href="#"><i class="ti ti-map-pin" style="margin-right:5px;color:var(--orange);"></i>Yaoundé, Cameroun</a></li>
+          <li><a href="#"><i class="ti ti-clock" style="margin-right:5px;color:var(--orange);"></i>Disponible 7j/7</a></li>
+          <li><a href="#"><i class="ti ti-car" style="margin-right:5px;color:var(--orange);"></i>Déplacement possible</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="current-year"></span> <strong style="color:#fff;">DFAD Mécatronique</strong> · Yaoundé, Cameroun · Tous droits réservés.</p>
+      <p>Service de qualité pour votre sécurité · <a href="tel:+237690304985">690 304 985</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-label="Image agrandie">
+  <button class="lb-close" aria-label="Fermer"><i class="ti ti-x"></i></button>
+  <img class="lb-img" src="" alt="">
+</div>
+
+<!-- EmailJS — envoie vers djoujesica86@gmail.com sans backend -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
