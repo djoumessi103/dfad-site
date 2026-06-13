@@ -202,7 +202,7 @@ function afficherModale(waURL, prenom) {
       '</div>' +
       '<a href="' + waURL + '" target="_blank" rel="noopener" class="mwa-wa-btn" id="btn-wa-link">' +
         '<svg ...></svg>' +
-        'Envoyer sur WhatsApp · 690 304 985' +
+        'Envoyer sur WhatsApp · 656876238' +
       '</a>' +
       '<p class="mwa-hint">👆 Appuyez sur ce bouton — WhatsApp s\'ouvre avec le message prêt à envoyer</p>' +
     '</div>' +
